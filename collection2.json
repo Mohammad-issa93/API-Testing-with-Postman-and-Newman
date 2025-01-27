@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "216f122a-a6fe-456f-af4e-ce23962c5eae",
+		"name": "tests for APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41554501"
+	},
+	"item": [
+		{
+			"name": "health-check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/health-check",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register_new_user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "missa9933444",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "missa9933444@m.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Ab@1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/users/register",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jasonData=pm.response.json();\r",
+							"var token=jasonData.accesstoken\r",
+							"pm.environment.set(\"token\",token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "missa9@m.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Ab@1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/users/login",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "558de0a0bd31474390abcbd8304c8bdcdd58ef3b3b4c4c778f1494d51027e723",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "missa9",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "123456789102222",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "solutions",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/users/profile",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change_password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "558de0a0bd31474390abcbd8304c8bdcdd58ef3b3b4c4c778f1494d51027e723",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "currentPassword",
+							"value": "Ab@1234",
+							"type": "text"
+						},
+						{
+							"key": "newPassword",
+							"value": "Ab@12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/users/change-password",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"users",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_note",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "558de0a0bd31474390abcbd8304c8bdcdd58ef3b3b4c4c778f1494d51027e723",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Note2Note2Note2gggee",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "description Notegggdd",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Home",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/notes",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "558de0a0bd31474390abcbd8304c8bdcdd58ef3b3b4c4c778f1494d51027e723",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "completed",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/notes/67979d64856e7502837b5b7a",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"notes",
+						"67979d64856e7502837b5b7a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_note",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "558de0a0bd31474390abcbd8304c8bdcdd58ef3b3b4c4c778f1494d51027e723",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/notes/67979f5e856e7502837b5ba0",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"notes",
+						"67979f5e856e7502837b5ba0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
